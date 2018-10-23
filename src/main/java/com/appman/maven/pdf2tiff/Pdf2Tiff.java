@@ -24,12 +24,13 @@ public class Pdf2Tiff {
        String filenames[] = {
            "3033255500"
        };
-       
+       System.out.println("...");       
        for (int i = 0; i < filenames.length; i++){
            pdfName = iPath + "application-" + filenames[i] + ".pdf";
            tiffName = oPath + "application-" + filenames[i ]+ ".tiff";
 
             Ghostscript gs = Ghostscript.getInstance();
+	    // -r mean resoltion 200x200
             String[] gsArgs = new String[] {
                     "-dQUIET", "-dNOPAUSE", "-dBATCH", "-dSAFER",
                     "-sDEVICE=tiffgray", "-sCompression=lzw", "-r200", "-sOutputFile=" + tiffName, pdfName
